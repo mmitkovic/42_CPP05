@@ -3,7 +3,7 @@
 
 int main()
 {
-    Form b;
+    AForm b;
     b.setGrade(1000);
     try {
         b.getGrade();

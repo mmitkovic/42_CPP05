@@ -1,5 +1,5 @@
 #include "Bureaucrat.hpp"
-#include "Form.hpp"
+#include "AForm.hpp"
 
 Bureaucrat::Bureaucrat() : _name("Generic Bureaucrat"), _grade(150) { std::cout << "[c]Bureaucrat" << std::endl; }
 Bureaucrat::Bureaucrat(const std::string& name, const int grade ) : _name(name), _grade(grade)
@@ -87,23 +87,18 @@ void Bureaucrat::signForm(AForm &f) {
     }
 }
 
+void Bureaucrat::executeForm(AForm const &form) const {
+    try {
+        form.execute(*this);
+        std::cout << this->getName() << " executed " << form.getName() << std::endl;
+    } catch (const std::exception &ex) {
+        std::cout << this->getName() << " couldn't execute " << form.getName() << " because " << ex.what() << std::endl;
+    }
+}
+
 // ostream
 std::ostream &operator<<(std::ostream &out, const Bureaucrat& src)
 {
     out << src.getName() << ", bureaucrat grade " << src.getGrade();
     return out;
 }
-
-//-----------------------------------------------------------
-// Bureaucrat& Bureaucrat::operator=(const Bureaucrat& src)
-// {
-//     std::cout << "[c][a][o]Bureaucrat" << std::endl;
-//     if (this != &src)
-//     {
-//         std::string* tmp_n = const_cast<std::string*>(&_name);
-//         int* tmp_g = const_cast<int*>(&_grade);
-//         *tmp_n = src._name;
-//         *tmp_g = src._grade;
-//     }
-//     return *this;
-// }
