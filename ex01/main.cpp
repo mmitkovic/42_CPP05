@@ -1,13 +1,9 @@
 #include "Bureaucrat.hpp"
 #include "Form.hpp"
+#include <iostream>
 
 int main()
 {
-    AForm b;
-    b.setGrade(1000);
-    try {
-        b.getGrade();
-    } catch (std::exception &e) {
-        std::cerr << "----" << e.what() << std::endl;
-    }
+    Form b;
+	std::cout << b << std::endl;
 }

@@ -1,19 +1,23 @@
+/* ************************************************************************** */
+/*                                                                            */
+/*                                                        :::      ::::::::   */
+/*   main.cpp                                           :+:      :+:    :+:   */
+/*                                                    +:+ +:+         +:+     */
+/*   By: mmitkovi <mmitkovi@student.42.fr>          +#+  +:+       +#+        */
+/*                                                +#+#+#+#+#+   +#+           */
+/*   Created: 2026/02/19 19:25:45 by mmitkovi          #+#    #+#             */
+/*   Updated: 2026/02/19 19:27:55 by mmitkovi         ###   ########.fr       */
+/*                                                                            */
+/* ************************************************************************** */
+
 #include "Bureaucrat.hpp"
 
 int main()
 {
-    try {
-        Bureaucrat b("B", -1);
-    } catch (std::exception &e) {
-        std::cerr << e.what() << std::endl;
-    }
+    
+    Bureaucrat b("B", -1);
     Bureaucrat v("V", 1);
-    try {
-        checkGrade(v.getGrade());
-    } catch (std::exception &e) {
-        std::cerr << e.what() << std::endl;
-    }
-    std::cout << v << std::endl;
+   	std::cout << v << std::endl;
     v.setGrade(1000);
     std::cout << v << std::endl;
 }

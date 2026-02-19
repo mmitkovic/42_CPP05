@@ -31,16 +31,13 @@ public:
             return "Grade is too low";
         }
     };
-    
     std::string getName() const;
     int getGrade() const;
     void checkGrade( int grade );
-
     void setGrade(int grade);
     void incrementGrade();
     void decrementGrade();
-    void signForm(AForm& f);
-
+    void signForm(Form& f);
 };
 std::ostream &operator<<(std::ostream &out, const Bureaucrat& src);
 

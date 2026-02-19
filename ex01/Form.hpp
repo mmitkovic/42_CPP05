@@ -2,10 +2,11 @@
 #define FORM_HPP
 
 #include <string>
-// #include <exception>
-#include "Bureaucrat.hpp"
+#include <iostream>
+#include <ostream>
+class Bureaucrat;
 
-class AForm : public Bureaucrat
+class Form
 {
 private:
     const std::string _name;
@@ -13,10 +14,10 @@ private:
     const int grade_sign;
     const int grade_exec;
 public:
-    AForm();
-    AForm(const AForm& src);
-    AForm& operator=(const AForm& src);
-    ~AForm();
+    Form();
+    Form(const Form& src);
+    Form& operator=(const Form& src);
+    ~Form();
 
     class GradeTooHighException : public std::exception
     {
@@ -34,8 +35,11 @@ public:
     };
     std::string getName() const;
     bool getIsSigned() const;
+	int getSign() const;
+	int getExec() const;
     void beSigned(const Bureaucrat& b);
 };
+std::ostream &operator<<(std::ostream &out, const Form& src);
 
 #endif
 

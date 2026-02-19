@@ -21,7 +21,7 @@ int main()
         Bureaucrat r("R", 1);
         Intern someRandomIntern;
         AForm* rrf;
-        rrf = someRandomIntern.makeForm("robotomy request", "Bender");
+        rrf = someRandomIntern.makeForm(" creation", "Bender");
         if (rrf) {
             std::cout << rrf->getTarget() << std::endl;
             std::cout << rrf->getGradeSign() <<  std::endl;

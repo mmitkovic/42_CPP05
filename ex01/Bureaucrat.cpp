@@ -1,7 +1,10 @@
 #include "Bureaucrat.hpp"
 #include "Form.hpp"
 
-Bureaucrat::Bureaucrat() : _name("Generic Bureaucrat"), _grade(150) { std::cout << "[c]Bureaucrat" << std::endl; }
+Bureaucrat::Bureaucrat() : _name("Generic Bureaucrat"), _grade(150) 
+{ 
+	std::cout << "[c]Bureaucrat" << std::endl; 
+}
 Bureaucrat::Bureaucrat(const std::string& name, const int grade ) : _name(name), _grade(grade)
 {
     std::cout << "[p][c]Bureaucrat" << std::endl;
@@ -13,15 +16,22 @@ Bureaucrat::Bureaucrat(const std::string& name, const int grade ) : _name(name),
         std::cerr << ex.what() << std::endl;
     }
 }
-Bureaucrat::Bureaucrat(const Bureaucrat& src) : _name(src._name), _grade(src._grade) { std::cout << "[c][c]Bureaucrat" << std::endl; }
-Bureaucrat &Bureaucrat::operator=(const Bureaucrat &src) {
+Bureaucrat::Bureaucrat(const Bureaucrat& src) : _name(src._name), _grade(src._grade) 
+{ 
+	std::cout << "[c][c]Bureaucrat" << std::endl; 
+}
+Bureaucrat &Bureaucrat::operator=(const Bureaucrat &src) 
+{
     std::cout << "[c][a][o]Bureaucrat" << std::endl;
     if (this != &src) {
         this->_grade = src._grade;
     }
     return *this;
 }
-Bureaucrat::~Bureaucrat() { std::cout << "~Bureaucrat" << std::endl; }
+Bureaucrat::~Bureaucrat() 
+{ 
+	std::cout << "~Bureaucrat" << std::endl; 
+}
 
 // getters - setters
 std::string Bureaucrat::getName() const { return this->_name; }
@@ -54,6 +64,7 @@ void Bureaucrat::decrementGrade() {
         std::cerr << "Error: " << ex.what() << std::endl;
     }
 }
+
 void Bureaucrat::incrementGrade() {
     std::cout << "Increment grade of " << this->getName() << std::endl;
     try {
@@ -78,7 +89,7 @@ void Bureaucrat::checkGrade(const int grade )
     }
 }
 
-void Bureaucrat::signForm(AForm &f) {
+void Bureaucrat::signForm(Form &f) {
     try {
         f.beSigned(*this);
         std::cout << this->getName() << " signed " << f.getName() << std::endl;
@@ -93,17 +104,3 @@ std::ostream &operator<<(std::ostream &out, const Bureaucrat& src)
     out << src.getName() << ", bureaucrat grade " << src.getGrade();
     return out;
 }
-
-//-----------------------------------------------------------
-// Bureaucrat& Bureaucrat::operator=(const Bureaucrat& src)
-// {
-//     std::cout << "[c][a][o]Bureaucrat" << std::endl;
-//     if (this != &src)
-//     {
-//         std::string* tmp_n = const_cast<std::string*>(&_name);
-//         int* tmp_g = const_cast<int*>(&_grade);
-//         *tmp_n = src._name;
-//         *tmp_g = src._grade;
-//     }
-//     return *this;
-// }
