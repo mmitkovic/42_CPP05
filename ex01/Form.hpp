@@ -10,12 +10,13 @@ class Form
 {
 private:
     const std::string _name;
-    bool is_signed; // at construction, is not
+    bool is_signed;
     const int grade_sign;
     const int grade_exec;
 public:
     Form();
     Form(const Form& src);
+	Form(const int grade);
     Form& operator=(const Form& src);
     ~Form();
 
